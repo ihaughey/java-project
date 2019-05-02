@@ -1,12 +1,11 @@
 node('linux'){
     stage('Unit Tests'){
-        ant -f test.xml -v
-        reports/result.xml
+        sh 'ant -f test.xml -v'
+        junit 'reports/result.xml'
     }
     
     stage('Build'){
-        ant -f build.xml -v
-        sh 'ant'
+        sh 'ant -f build.xml -v'
     }
     
     stage('Results'){
