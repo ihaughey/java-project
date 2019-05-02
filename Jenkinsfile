@@ -10,7 +10,8 @@ node('linux'){
     }
     
     stage('Deploy'){
-        
+        s3Upload(file:'*.jar', bucket:'seis665-class4', path:'/workspace/java-pipeline/dist/*.jar')
+
     }
     
     stage('Report'){
